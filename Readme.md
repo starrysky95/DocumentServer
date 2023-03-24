@@ -1,4 +1,4 @@
-[![License](https://img.shields.io/badge/License-GNU%20AGPL%20V3-green.svg?style=flat)](https://www.gnu.org/licenses/agpl-3.0.en.html) ![Release](https://img.shields.io/badge/Release-v7.0.0-blue.svg?style=flat)
+[![License](https://img.shields.io/badge/License-GNU%20AGPL%20V3-green.svg?style=flat)](https://www.gnu.org/licenses/agpl-3.0.en.html) ![Release](https://img.shields.io/badge/Release-v7.2.0-blue.svg?style=flat)
 
 ## Overview
 
@@ -111,10 +111,11 @@ The table below will help you to make the right choice.
 | Form preview                    | + | + | + |
 | Saving as PDF                   | + | + | + |
 | **Security features** | **Community Edition** | **Enterprise Edition** | **Developer Edition** |
-| End-to-end encryption via Private Rooms  | + | + | - |
+| End-to-end encryption via Private Rooms**  | + | + | - |
 | | [Get it now](https://www.onlyoffice.com/download-docs.aspx?utm_source=github&utm_medium=cpc&utm_campaign=GitHubDS#docs-community)  | [Start Free Trial](https://www.onlyoffice.com/download-docs.aspx?utm_source=github&utm_medium=cpc&utm_campaign=GitHubDS#docs-enterprise)  | [Start Free Trial](https://www.onlyoffice.com/download-docs.aspx?utm_source=github&utm_medium=cpc&utm_campaign=GitHubDS#docs-developer)  |
 
-\* If supported by DMS
+\* If supported by DMS  
+\** End-to-end encryption via Private Rooms requires ONLYOFFICE Workspace
 
 ## Documentation
 

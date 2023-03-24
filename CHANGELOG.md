@@ -1,5 +1,773 @@
 # Change log
 
+## 7.3.3
+
+### Fixes
+
+#### All Editors
+
+* Fix crash when using Shift+← and Ctrl+→ in a graphical formula (Bug #60984) ([DocumentServer#2131](https://github.com/ONLYOFFICE/DocumentServer/issues/2131))
+* Fix distance between labels and the axis
+* Fix points label position (max min axis orientation)
+* Fix bug with picking symbol fonts (and new scheme for the symbols map)
+* Fix bug with "Connection is restored" in version history
+* Fix updating other user cursor for the obfuscated version
+
+#### Document Editor
+
+* Fix the XSS vulnerability CVE-2022-47412 in the search and replace panel (Bug #60109)
+* Fix font size in the `DOCX` file (Bug #60911)
+* Fix crash when opening the DOCX file (Bug #60958)
+* Fix display of a nested table (Bug #60963)
+* Fix crash when changing the `LaTeX` modes in a graphical formula (Bug #60998)
+* Fix letter case in the `DOC` file (Bug #60894)
+* Fix crash in the `Unicode` / `LaTeX` modes
+  in a graphical formula (Bug #61094)
+* Fix display of changes in the document when counting pages (Bug #60567)
+* Fix display of graphical formulas created
+  in Microsoft Equation Editor 3.0 (MEE) (Bug #61103)
+* Fix a conversion error in the `ODT` file (Bug #61117)
+* Fix the button name in the Title window in French (Bug #61080)
+* Fix saving the selection color when converting `OTT` to `ODT` (Bug #61031)
+* Fix an error when saving a file in the Internet Explorer browser (Bug #61173)
+* Fix display of a date in Dutch (Bug #61223)
+* Fix copying / pasting text from MS Word to the Document Editor (Bug #61356)
+* Fix crash when pasting text without keeping its
+  original formatting (Bug #61409)
+* Fix crash when selecting a table in the `DOCX` file (Bug #61448)
+* Fix display of text in the `DOC` file (Bug #59639)
+* Fix deleting a table when opening the `DOCX` file (Bug #61412)
+* Fix display of data when sending to email (Bug #61300)
+* Fix crash when updating cross references (Bug #61489)
+* Fix numbering in headings (Bug #61550)
+* Fix crash when changing the style of text in the `DOCX` file (Bug #61549)
+* Add handling the Adding complex fields
+* Add a class for working with the Adding fields data
+* Implement the field ID to identify complex fields using plugins
+* Add a method for plugins to remove the complex field wrapper
+* Add a method for plugins to change editing restrictions
+* Fix description of editing restrictions for plugins
+* Remove unnecessary check for `ConvertContentView`
+* Implement accepting / rejecting for the new review change type
+* Add support for the `FORMTEXT` fields as complex fields
+* Add a new type of the review change for a table row
+* Fix the review `tablePr` change detection during selection
+* Fix calculation for tables with an entire vertically merged row
+* Fix table correction when loading a document
+* Fix numbering in headings (Bug #61564)
+* Fix rounding images in the `DOCX` file (Bug #61577)
+
+#### Spreadsheet Editor
+
+* Fix copying / pasting an image from an external source (Bug #60962) ([DocumentServer#2153](https://github.com/ONLYOFFICE/DocumentServer/issues/2153))
+* Fix crash when opening the `XLSX` file (Bug #60926)
+* Fix selecting a sheet with Ctrl+Shift+Space (Bug #60932)
+* Fix crash when printing a workbook from version history (Bug #60973)
+* Fix updating links which contain spaces in their titles (Bug #60980)
+* Fix crash when opening a workbook for commenting (Bug #61052)
+* Fix display of dates when saving a workbook to the `ODS` format (Bug #61089) ([DocumentServer#2102](https://github.com/ONLYOFFICE/DocumentServer/issues/2102))
+* Fix removing a comment in the `ODS` file (Bug #61054)
+* Fix an error when opening the `XLSX` file (Bug #61406)
+* Fix crash when searching and replacing within the cell range (Bug #61572)
+
+#### Presentation Editor
+
+* Fix crash in a graphical formula (Bug #60939)
+* Fix display of the `WMF` image in the `PPTX` file (Bug #61090) ([DocumentServer#2100](https://github.com/ONLYOFFICE/DocumentServer/issues/2100))
+* Fix crash when opening the paragraph advanced settings
+  in the `PPTX` file (Bug #61363)
+* Fix crash when copying and autoshape and a graphical formula (Bug #61345)
+
+#### Forms
+
+* Fix display of a text field in co-editing (Bug #60920)
+* Fix updating roles in co-editing (Bug #60921)
+* Fix determination of the role for the Checkbox field (Bug #60922)
+* Fix a field mask in the `OFORM` file (Bug #60945)
+* Change display of a dropdown list (Bug #60986)
+* Fix changing roles when saving a file (Bug #61070)
+* Fix crash when filling in a form on the server with sdk
+  without forms (Bug #61297)
+* Fix crash when connecting to the server with sdk without forms (Bug #61297)
+
+#### PDF Viewer
+
+* Fix display of an image in the `PDF` file (Bug #61014)
+* Fix changing size of the `PDF` before opening
+
+#### Back-end
+
+* Extend length of the jwt token to 32 symbols according to NIST SP 800-117
+* Fix a bug with the multiple `update version` error
+* Add the changes2forgotten source
+* Fix the `session token` check after disconnecting Spreadsheet Editor
+* Revert `token.browser` for backward compatibility with changes2forgotten
+* Remove unused upgrade scripts of the database
+* Remove the unused `doc_changes2` schema in the database
+* Add the `extendSession` params to log
+* Add a space to the line break in the `changesError` message
+  so that Cloudwatch treats it as a single entry
+
+#### Mobile
+
+* Fix display of a warning when opening the `XLSX` file
+  with external links (Bug #60297)
+* Fix calling the file manager in the `DOCXF` viewing mode (Bug #61314)
+* Add a window with the warning about saving to an editable format
+  for the PDF and XPS files (Bug #61340)
+* Fix scrolling slides (Bug #59816)
+* Fix crash in the free Community Edition version
+  of the mobile editor (Bug #61396)
+* Fix display of the Standard view icon when opening the editor (Bug #58866)
+* Fix setup of the mobile offset when the editor is not initialized
+
+#### Convert
+
+* Fix a conversion error of the `XLS` file (Bug #61222)
+* Fix a conversion error of the `XLS` file (Bug #61294)
+* Fix a conversion error of the `DOCX` file to `PNG` (Bug #61357)
+* Fix a conversion error of the `HTML` file to `PNG` (Bug #61296)
+* Fix an error when opening the `ODP` file after conversion
+  PPTX to ODP (Bug #61445)
+* Fix a conversion error of the `DOCX` file to `HTML` (Bug #61318)
+* Fix an error when opening the `ODS` file after conversion
+  the `XLSX` file to `ODS` (Bug #61353)
+* Fix an error when opening the `XLSX`  file after conversion
+  the `ODS` file to `XLSX` (Bug #60339)
+* Fix a conversion error of the `DOCX` file to `PNG` (Bug #61475)
+* Fix a conversion error of the `DPS` file to `PPTX` (Bug #61508)
+* Fix an error when converting the `PPT` file to `PPTX` (Bug #61459)
+* Fix an error when opening a file in LibreOffice after converting
+  the `DOCX` file to `ODT` (Bug 61588)
+
+#### Customization
+
+* Fix display of the Feedback and support button in the mobile editor
+  with `customization.feedback: false` (Bug #61123)
+* Fix display of the Feedback and support button in the mobile editor
+  with `customization.help: false` (Bug #61135)
+* Fix display of the logo when setting up `loaderName` or `loaderLogo`
+  and loading the editors mobile version (Bug #59658)
+
+#### API
+
+* Add the `locale` parameter to the plugin `GetName` method
+* Add sending the plugin event on inserting OLE objects to a document
+* Add the `GetPageCount` and `GetAllTables` methods
+* Add special characters replacement for the `SearchAndReplace` method
+
+#### Plugins
+
+* Fix the Remove / Install button state in the Plugin Manager (Bug #61030)
+* Fix initialization of event `onChangeContentControl` in the plugin (Bug #61194)
+* Fix display of images after editing in the Photo Editor plugin (Bug #61261)
+* Fix crash when adding a quote or a bibliography using
+  the Zotero plugin (Bug #61306)
+* Mark `pluginMethod_InsertOleObject` and `pluginMethod_ChangeOleObjects`
+  as async methods
+* Wrap info about the cursor change
+
+## 7.3.2
+
+### Fixes
+
+#### Back-end
+
+* Fix work of `sessionIdle` parameter (Bug #61049)
+* Fix disconnect reason for `socket.io`
+* Fix work of shutdown script (Bug #60982)
+* Revert to classic `socket.io` upgrade to fix connection issue with proxy
+* Fix database creation without `onlyoffice` owner (Bug #59826)
+
+#### API
+
+* Fix bug with double messages from editor
+
+#### Docker
+
+* Fix building docker image (Bug #61002)
+* Install `rabbitmq-server` from default ubuntu repo
+
+## 7.3.1
+
+### No public release
+
+## 7.3.0
+
+### New Features
+
+#### All Editors
+
+* Equation quick access panel
+* 3D Rotation settings for 3D charts
+* Display of chart error bars (for opening only)
+* Inserting Smart Art objects
+* Uzbek dictionaries for spell checking: `Uzbek (Cyrillic)` and `Uzbek (Latin)`
+* Presets for inserting horizontal and vertical text boxes
+* Ability to hide left and right panel on the `View` tab of the top toolbar
+* Width of the styles / themes panel now fits the whole number of items
+* Grouping for table templates
+* Cell styles in the OLE object editor
+* Ability to resize dialog windows for editing charts, OLE objects,
+  and mail merge recipients
+* Unified appearance for dialog windows, context menus, toolbar, etc.
+* Optimizing display of captions in the toolbar buttons
+* Improving display of comments
+* Changed metafiles conversion to `SVG`
+* Reading and writing `PDF` are combined in a single library to optimize work
+
+#### Document Editor
+
+* Support for entering equations in two modes (`Unicode` and `LaTeX`)
+* Ability to protect a document by setting a restriction on editing
+* Button for accessing to statistics in the status bar
+
+#### Spreadsheet Editor
+
+* Watch Window
+* Ability to select multiple items using ctrl/shift in the Watch Window
+* Support for new functions: `TEXTBEFORE`, `TEXTAFTER`, `TEXTSPLIT`, `VSTACK`, `HSTACK`,
+ `TOROW`, `TOCOL`, `WRAPROWS`,  `WRAPCOLS`, `TAKE`, `DROP`, `CHOOSEROWS`, `CHOOSECOLS`
+* Support for updating links to external files and the ability to create these links
+* Ability to add a link between files within the portal using `Paste Special`
+* Ability to insert data from the `XML` file (XML Spreadsheet 2003 is supported)
+* Grouping for pivot table templates and cell styles
+* Changed preview size for cell styles
+
+#### Presentation Editor
+
+* Support for entering equations in two modes (`Unicode` and `LaTeX`)
+* Guides and Gridlines settings in the `View` tab and the context menu
+* Tooltips when moving guides and the ability to remove the selected guide
+* Special Paste parameters for a slide
+* Ability to save a shape (graphic object) as a picture in the context menu
+
+#### Forms
+
+* New fields: `Date and time`, `Zip Code`, `Credit Card`
+* Managing roles: adding, editing, removing roles, assigning them to fields
+* Ability to preview the `DOCXF` file from the point of view of each created role
+
+#### Back-end
+
+* Scheme for editing old binary formats with automatic conversion to
+  [ooxml](https://docs.microsoft.com/en-us/microsoft-365/cloud-storage-partner-program/online/scenarios/conversion)
+  for the `WOPI` protocol
+* `/cool/convert-to/<format>` or `/lool/convert-to/<format>` file conversion
+  service like in [Collabora](https://sdk.collaboraonline.com/docs/conversion_api.html)
+  for the `WOPI` protocol
+* Page for converting files from old formats for the `WOPI` protocol
+* Library for exchanging data with the server changed
+  from [sockjs](https://www.npmjs.com/package/sockjs) to [socket.io](https://socket.io/)
+* Service manager in the onlyoffice-documentserver packages changed
+  from `supervisord` to `systemd`
+  to get rid of excess dependence and simplify functionality for end users
+* Ability to work in the non-interactive mode added to the configuration script
+  of the document-server `rpm` package.   Configuring is performed via parameters.
+  The `-h` parameter is used to display all the available parameters.
+  Intended to be used for calling from other scripts etc.
+* `jsonwebtocken` library is updated to v9.0.0.
+
+#### x2t
+
+* Refactoring and optimizing the conversion code
+
+#### Customization
+
+* Parameter for customizing the font of the interface elements (buttons, tabs,
+  captions etc.) in the configuration file:
+  `customization`->`font`->`name: "font name"`.
+  The setting is available for users with the extended license.
+* Parameters for initial state of the left and right panel display
+  in the configuration file:
+  
+  `customization`->`layout`->`leftMenu`->`mode: true`/`false` (show/hide),
+  
+  `customization`->`layout`->`rightMenu->mode: true`/`false` (show/hide)
+
+#### Api
+
+* New `GetRange` method for the `ApiRange` class, which allows getting
+  a substring from the Range object.
+
+### Fixes
+
+* Fix the vulnerability with adding an admin to Nextcloud via macros (Bug #60088)
+* Fix the XSS vulnerability when creating a new style
+* All components received countless fixes
+
+## 7.2.2
+
+### Fixes
+
+#### All Editors
+
+* Change selection font for base math font
+
+#### Document Editor
+
+* Fix the document bouncing in fast co-edit mode (Bug #59647) ([DocumentServer#1955](https://github.com/ONLYOFFICE/DocumentServer/issues/1955))
+* Fix ability to review the document by anonymous users (Bug #59592)
+* Fix changing `Unit of Measurement` property in `Advanced Settings` (Bug #59911)
+* Fix the problem with compiling text properties of paragraph numbering (Bug #59324)
+* Fix comment highlight rendering (Bug #59640)
+* Fix calculating end info of the paragraph (Bug #59997, #60026)
+* Fix printing selection for some documents (Bug #60167)
+* Fix calculating the end info of a paragraph in table (Bug #60115)
+
+#### Spreadsheet Editor
+
+* Fix print from the integrations (Bug #59466)
+* Fix hangup on opening xlsx file (Bug #59549)
+* Fix displaying of the descriptions in `Function Arguments` window
+  for non-English formula languages
+
+#### Presentation Editor
+
+* Fix applying auto-correction in the equations (Bug #59529) ([DocumentServer#1960](https://github.com/ONLYOFFICE/DocumentServer/issues/1960))
+
+#### Convert
+
+* Fix some specific files in docx to png conversion (Bug #59923)
+
+#### Back-end
+
+* Major improvements of js compilation during convertions
+  through creating js caches with fonts
+* Fix file collection with setting `FileConverter.converter.errorfiles`
+* Add idle session close log and `clientLog` command
+* Add `onDocumentContentReady` log message
+
+#### API
+
+* Fix `GetVisibleRegion` method
+* Add `WordControl.ScrollToAbsolutePosition` method
+
+#### Mobile Web Editors
+
+* Fix the editors loading in some integrations on iOS and iPadOS (Bug #59604)
+
+#### Docker
+
+* Fix port parsing from `amqp_uri` if host contains digits including IP (Bug #59483)([Docker-DocumentServer#215](https://github.com/ONLYOFFICE/Docker-DocumentServer/issues/215))
+* Add base image and PostgreSQL version build arguments
+* Fix errors when starting the container on CentOS 9 (Bug #59481)([Docker-DocumentServer#522](https://github.com/ONLYOFFICE/Docker-DocumentServer/issues/522))
+
+#### Integration Example
+
+* Fixed several issues with jwt in different examples
+
+## 7.2.1
+
+### New Features
+
+#### All Editors
+
+* Major improvements in fonts render engine. Removal of `Alternative input` settings
+
+### Fixes
+
+#### All Editors
+
+* Fix `Help` closing (Bug #59315)
+
+#### Document Editor
+
+* Fix numbering in Portuguese or Basque language (Bug #59091)
+* Fix the problem with review types when splitting paragraph (Bug #58512)
+* Fix the problem with special paste button (Bug #59149)
+* Fix crash on opening docx (Bug #59212)
+* Fix the problem with reading `rPrChange` property and review such files (Bug #59205)
+* Fix scrolling in co-edit view mode (Bug #57928)
+* Fix the problem with performing the global undo (Bug #59270)
+* Fix the problem with set the bold property for text in the complex script
+  (Bug #59289)
+* Fix special paste position (Bug #59139)
+
+#### Spreadsheet Editor
+
+* Fix hangup on opening xlsx file (Bug #58112)
+* Fix special paste via hotkey (Bug #59148)
+
+#### Presentation Editor
+
+* Fix animations problems (Bug #59301)
+* Fix opening pptx file (Bug #59308)
+
+#### Convert
+
+* Fix xlsb to xlsx conversion (Bug #59002)
+* Fix broken docx with 3D charts (Bug #58814)
+* Fix some specific files in ppt to pptx conversion (Bug #59074, Bug #59106,
+  Bug #59108, Bug #59261, Bug #59276, Bug #59277, Bug #59281, #59261)
+* Fix some specific files in xlsx to ods conversion (Bug #59118)
+* Fix metadata loss in PDF (Bug #59153)
+* Fix problems with opening xps files (Bug #59119)
+* Fix empty presentation for ods to pptx conversion (Bug #59220)
+* Fix xlsx to ods conversion (Bug #59221, Bug #59353)
+* Fix xls to xlsx conversion (Bug #59209)
+* Fix rtf to docx conversion (Bug #59322)
+* Fix doc to docx conversion (Bug #59329)
+* Fix csv number formats (Bug #59357)
+* Improve EMF images rendering
+
+#### PDF Viewer
+
+* Fix search highlight (Bug #59069)
+* Fix tooltip language for preview (Bug #59087)
+
+#### Forms
+
+* Major improvements in saving forms to PDF
+* Implement save text field formats to PDF (Bug #58901)
+* Add default form key when creating new forms
+* Fix image track display (Bug #59120)
+* Fix the problem with highlight of a fixed form (Bug #59105)
+* Fix duplicating fixed forms when saving to PDF
+* Fix the problem with converting complex field to fixed form (Bug #59262)
+* Fix the problem with entering text to form (Bug #59290)
+* Fix the problem with working with complex fields and simple fields (Bug #59345)
+* Fix keys list problems (Bug #59377)
+* Fix the problem with cancel filling the form on form blur (Bug #59373)
+* Fix the problem with key of complex forms (Bug #59374)
+* Fix complex form filling problem for forms with same key (Bug #59375)
+* Fix the problem with printing form borders filled with placeholders (Bug #59378)
+* Fix the problem with updating content of a Ref field (Bug #58606, Bug #59278)
+
+#### Back-end
+
+* Calling separate callback for each `pathurl` request
+* Fix forgotten migration ([DocumentServer#1911](https://github.com/ONLYOFFICE/DocumentServer/issues/1911))
+* Set timeout for entire conversion
+* Add `pathurl` command to startRPC
+* Check connection status before sending changes
+* Add `editor.maxChangesSize` limit to document changes in config
+* Fix bug with using built-in Root CAs instead of Windows Store.
+* Check license on live viewer authorization
+* Add alias field for multi tenancy
+* Add acknowledge to authChanges
+
+#### API
+
+* Fix `Api.CreatePictureForm` method (Bug #59159)
+* New methods to work with Review mode via API
+
+#### Mobile Web Editors
+
+* Fix SmartArt rendering (Bug #58867)
+* Fix hangup on duplicate slide (Bug #59102)
+* Fix hidden separator in dark theme (Bug #58272)
+
+#### Docker
+
+* Update base image to `ubuntu:22.04`. Please update `docker-engine`
+  to latest stable version (`20.10.21` as of writing this doc)
+* Fix build of image (Bug #59310)([Docker-DocumentServer#506](https://github.com/ONLYOFFICE/Docker-DocumentServer/issues/506))
+
+#### Integration Example
+
+* Fixed several issues in different examples
+
+## 7.2.0
+
+### New Features
+
+#### All Editors
+
+* JWT with random key enabled by default. This fix CVE-2021-43445,
+  CVE-2021-43447, CVE-2021-43448, CVE-2021-43449
+* Random secret key by default. Fix CVE-2021-43444
+* Fix CVE-2022-32212 by upgrading nodejs version
+* Show warning on macros execution if connection to another host. Fix CVE-2021-43446
+* Top toolbar optimizations for smaller screens
+* Added the ability to choose "Contrast Dark" or "System default"
+  interface theme (Bug 59010)
+* More options in `View` tab. View tab available in comment and view mode
+* Redone of icons in header line
+* Ability to rename file from header (Should be supported by DMS)
+* Redone of settings page
+* Exact build number in `About` page
+* New `Live viewer`  - ability to see changes in view mode
+ (Should be supported by DMS)
+* Stat page will show statistics for `Live viewer`
+* New interface languages - `pt-PT`, `zh-TW`, `eu-ES`, `ms-MY`, `hy-AM`
+* Redone of color selection component
+* New option to disable alternative menu
+* Completely redesigned search inside the document
+* New hotkeys for `Special Paste`
+* Added `Cut` and `Select All` buttons to the toolbar next to `Copy`\`Paste`
+* Major improvements in Font engine (For languages like Bengali or Sinhala)
+  (Only in Document Editor and Presentation Editor)
+* Ligatures support
+* Ability to insert tables as OLE object
+* Support for images as a bulleted list and the ability to work with them
+* Major improvements in `EMF` and `WMF` files rendering
+* Completely new plugin marketplace
+
+#### Document Editor
+
+* Ability  to remove Header/Footer from toolbar
+* Ability to insert current heading in TOC
+* New warning if there is no TOC in document
+* Navigation panel renamed to `Headings`
+* Major improvements in `pdf`, `djvu`, `xps` convert to `docx`
+* Correct display Greek letters as numbered list items
+* New types of multilevel lists, which can be applied to Headers
+* Redone changes apply in Review mode
+
+##### Spreadsheet Editor
+
+* Ability to `Switch rows and columns` for Chart
+* New `Italiano (Svizzera)` language for regional settings
+* Row number highlight for filter
+* Remove `First sheet` and `Last sheet` from bottom toolbar
+* Selection of copied range
+* `Get link to this range` in context menu
+* Pivot table option - `Auto-fit column widths on update`
+* 1904 date system support
+
+##### Presentation Editor
+
+* Animation with Custom path
+* New advanced settings `Placement` tab for shapes\charts\images
+
+#### Forms
+
+* Search in embedded and forms mode
+* Change field width for `Comb of characters`-enabled field
+* Ability to set tag for field
+* New `Format` and `Allowed Symbols` settings for field
+* New field types - `Phone number`, `Email Address` and `Complex Field`
+
+##### Installation
+
+* Auto detect of DB type in `deb` package
+* `arm64` and `amd64` docker images use same tag
+
+###### Back-end
+
+* `WOPI` discovery action for embedded viewer
+
+##### Customization
+
+* Ability to set phone in `About` page
+
+##### Api
+
+* `GetFontNames()` methods for `Paragarph` and `Run`
+* New methods to get cross-reference data:
+  `ApiDocument.GetAllNumberedParagraphs();`,
+  `ApiDocument.GetAllHeadingParagraphs();`,
+  `ApiDocument.GetFootnotesFirstParagraphs();`,
+  `ApiDocument.GetEndNotesFirstParagraphs();`,
+  `ApiDocument.GetAllCaptionParagraphs();`
+* New methods to set cross-reference data:
+  `ApiParagraph.AddNumberedCrossRef();`,
+  `ApiParagraph.AddHeadingCrossRef();`,
+  `ApiParagraph.AddBookmarkCrossRef();`,
+  `ApiParagraph.AddFootnoteCrossRef();`,
+  `ApiParagraph.AddEndnoteCrossRef();`,
+  `ApiParagraph.AddCaptionCrossRef();`
+* New methods to replace elements:
+  
+  ```javascript
+  ApiParagraph.GetPosInParent();
+  ApiParagraph.ReplaceByElement();
+
+  ApiTable.GetPosInParent();
+  ApiTable.ReplaceByElement();
+  
+  ApiBlockLvlSdt.GetPosInParent();
+  ApiBlockLvlSdt.ReplaceByElement();
+  ```
+
+* New methods to get size in EMU for drawings
+  `ApiDrawing.GetWidth();` and `ApiDrawing.GetHeight();`
+* Add new methods for chart:
+
+  ```javascript
+  ApiChart.ApplyChartStyle();
+  ApiChart.SetPlotAreaFill();
+  ApiChart.SetPlotAreaOutLine();
+  ApiChart.SetSeriesFill();
+  ApiChart.SetSeriesOutLine();
+  ApiChart.SetDataPointFill();
+  ApiChart.SetDataPointOutLine();
+  ApiChart.SetMarkerFill();
+  ApiChart.SetMarkerOutLine();
+  ApiChart.SetTitleFill();
+  ApiChart.SetTitleOutLine();
+  ApiChart.SetLegendFill();
+  ApiChart.SetLegendOutLine();
+  ```  
+
+* Improve support of regexps in code like `String.replace(/\s/g, "")`
+* Improvements in `oRange.GetValue` and `oRange.GetValue2`
+* Dozens of new methods for different objects.
+  More detailed list at [here](https://api.onlyoffice.com/docbuilder/changelog)
+* Fixes for several methods
+
+### Fixes
+
+* All components received countless fixes
+
+## 7.1.1
+
+### Fixes
+
+#### All Editors
+
+* Fix rendering list of fonts if there is a lot of fonts (Bug #46495)
+* Fix rendering of some Chinese fonts (Bug #48564)([DocumentServer#1142](https://github.com/ONLYOFFICE/DocumentServer/issues/1142))
+* Update help entries
+
+#### Document Editor
+
+* Fix lost text box in Header (Bug #56940)
+* Fix incorrect table width for some doc file (Bug #56901)
+* Fix convert of some docx files (Bug #57068, Bug #57177)
+* Fix color of SmartArt figures in docx -> odt convert (Bug #57104)
+* Fix page count in specific doc file (Bug #57334)
+* Fix insert page with merge cells and drag'n'drop (Bug #57305)
+* Fix zoom while touch-pad scrolling (Bug #56029)
+* Hide "Create new" for offline pdf/djvu/xps files
+
+#### Spreadsheet Editor
+
+* Fix all sheets display while saving as pdf (Bug #49163)
+* Fix zoom change with touch-pad on MacOS (Bug #57249)
+
+#### Presentation Editor
+
+* Fix re-save of some pptx files (Bug #57070)
+* Fix text align for some ODP files (Bug #57214)
+* Fix saving SmartArt in groups (Bug #57112)
+* Fix crash on drawing animation labels by shape track
+
+#### PDF Viewer
+
+* Fix lost text in PDF -> ODT (Bug #57274)
+* Fix lost text in PDF -> image convert (Bug #57363)
+* Fix calling translate plugin (Bug #53808)
+
+#### Mobile Web
+
+* Fix merged button on tablets (Bug #56884)
+* Fix interface move after close find & replace (Bug #56966)
+* Fix tooltip for function description (Bug #56968)
+
+#### Document Builder
+
+* Fix broken presentation after using `ApiSlide.ApplyTheme` (Bug #57062)
+
+#### Back End
+
+* Fix crash with config with undefined permissions
+* Increase connectionAndInactivity to reduce ESOCKETTIMEDOUT
+  error on download and save
+* Return inBody param for backwards compatibility with changes2forgotten
+
+## 7.1.0
+
+### New Features
+
+#### All Editors
+
+* ARM version for some systems
+* New menu for inserting shapes (with list of recent used)
+* Ability to edit points of a selected shapes
+* Ability to open new diagram types: Pyramid, Bar (Pyramid),
+  vertical and horizontal cylinders, vertical and horizontal cones
+* Ability to crop a selected image to shape
+* Sorting comments on the left sidebar by group
+* Ability to see your file protection password when entering it
+* Support for SmartArt objects without converting into a group of objects
+* New interface languages: Galego/Galician, Azerbaijani
+* Notifications appear when connection is lost and being restored
+* Gradient fill icon shows the chosen colors
+
+#### Document Editor
+
+* Ability to convert PDF/XPS files into editable files
+* New toolbar tab: View
+* Ability to accept/reject changes from the context menu
+* Ability to use special symbols when searching within documents
+* Ability to add a period with a double-space
+* Add Chinese/Japanese/Italian language to Watermark settings
+
+#### Document Viewer
+
+* New viewer for PDF, XPS, DJVU files with major performance improvements
+  All operations are performed on the client side.
+* Ability to use the Page Thumbnails panel and to
+  display the document's contents on the left sidebar for PDF files
+* Support for external and internal links in PDF opening
+* Ability to use Hand/Select tools in PDF viewer
+* The Document Info section of the Data tab contains
+  information about PDF, XPS, DJVU files
+
+#### Spreadsheet Editor
+
+* Using a built-in preview panel before printing out a spreadsheet
+* New `View` tab with settings like: Combine sheet and status bars,
+  Always show toolbar,
+  Interface theme,
+  Show frozen panes shadow
+* New currencies as per ISO 4217 without needing to change the locale
+* Using tips when working with formulas for tables
+* Ability to set a text qualifier when importing text from TXT/CSV
+* Support for XLSB files for opening
+* New context menu for moving sheets
+* Groups can be opened and closed in view/comments mode
+
+#### Presentation Editor
+
+* New toolbar tabs: Animation, View
+* Animations can be added to the presentation
+* Ability to duplicate slides using the Add slide menu
+* Ability to move a slide to beginning/end using a slide context menu
+* Ability to insert recently used shapes using a new panel on the Insert tab
+* Ability to add a period with double-space
+
+#### Forms
+
+* Ability to zoom a form
+
+#### Mobile Editors
+
+* Dark themes in mobile web editors and viewers
+* New button to show lists in spreadsheet
+
+#### API
+
+* The last callbackUrl is needed for sending a link
+ to a compiled file if a file was edited by the same user on different tabs
+* New sections Features and Layout for Customization.
+  Ability to customize interface, toolbar, left, right, bottom sidebar
+* The following parameters are renamed:
+  `leftMenu` -> `layout.leftMenu`,
+  `rightMenu` -> `layout.rightMenu`,
+  `toolbar` -> `layout.toolbar`,
+  `statusBar` -> `layout.statusBar`,
+  `spellcheck` -> `features.spellcheck`
+* Ability to see the customer_id and the build type on index.html
+* A lot of other changes in API, described [here](https://api.onlyoffice.com/editors/changelog#71)
+
+#### Back end
+
+* New environment variable X2T_MEMORY_LIMIT limiting memory for the x2t process
+* [WOPI] New headers for putFile request:
+  `X-LOOL-WOPI-IsModifiedByUser`,
+  `X-LOOL-WOPI-IsAutosave`,
+  `X-LOOL-WOPI-IsExitSave`
+* Performance improvements via build components update
+* `ttf-mscorefonts-installer` is now mandatory dependency for Linux version, for
+  better compatibility with ooxml files
+
+### Fixes
+
+* All components received countless fixes
+
 ## 7.0.1
 
 ### New Features
